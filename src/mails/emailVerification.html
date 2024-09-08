@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification</title>
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 0px;
+        padding-bottom: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      .header {
+        background-color: #dc2626;
+        color: #ffffff;
+        padding: 6px;
+        text-align: center;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      .logo {
+        margin: 20px 0 0 0;
+        text-align: center;
+      }
+      .logo img {
+        max-width: 150px;
+      }
+      .content {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .name {
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .valid-code {
+        font-size: 14px;
+      }
+      .footer {
+        text-align: center;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: #747474;
+        margin-top: 20px;
+      }
+
+      .response {
+        padding-bottom: 10px;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      .emailVerifyOTP-text {
+        text-align: center;
+        font-size: 24px;
+        padding: 15px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Email Verification</h2>
+      </div>
+      <div class="logo">
+        <img src="/public/temp/logo.png" alt="Company Logo" />
+      </div>
+      <div class="content">
+        <p class="name">Dear, {{firstName}} {{lastName}}.</p>
+        <p>
+          Thank you for using our services. To complete your registration,
+          please enter the <strong>Code</strong> provided below:
+        </p>
+        <div class="emailVerifyOTP-text">
+          <strong>{{emailVerifyOTP}}</strong>
+        </div>
+        <p class="valid-code">
+          This Code is valid for <strong>10 minutes.</strong>
+        </p>
+      </div>
+      <div class="footer">
+        <p class="response">
+          This email was sent to {{email}} in response to your request for code
+          verification.
+        </p>
+        <p>
+          If you did not request this Code, please safely ignore this email.
+        </p>
+        <p>&copy; 2024 Company. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>
