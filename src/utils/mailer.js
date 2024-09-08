@@ -24,7 +24,7 @@ const sendEmail = async (valueInput, recipientMails, template, subject) => {
 
   // Email options
   const mailOptions = {
-    from: `"Carderfly" <${process.env.SMTP_AUTH_EMAIL}>`,
+    from: `"Name" <${process.env.SMTP_AUTH_EMAIL}>`,
     to: recipientMails,
     subject: subject,
     html: htmlContent,
