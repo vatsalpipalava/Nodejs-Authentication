@@ -12,6 +12,9 @@ import logger from "./utils/logger.js";
 
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const morganFormat = ":method :url :status :response-time ms";
 
 app.use(
@@ -34,12 +37,8 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // serve static files
-app.use("/public", express.static(path.join(__dirname, "..", "public")));
-app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
+app.use(express.static("public"));
 
 app.use(cookieParser());
 
@@ -67,7 +66,7 @@ app.use("/api/v1/user", userRoutes);
 app.all("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
-    res.sendFile(path.join(__dirname, "views", "404.html"));
+    res.sendFile(path.join(__dirname, "..", "public", "views", "404.html"));
   } else if (req.accepts("json")) {
     res.json({ error: "404 Not Found" });
   } else {
